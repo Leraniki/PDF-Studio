@@ -1,0 +1,28 @@
+appId: app.pdfstudio.desktop
+productName: PDF Studio
+directories:
+  buildResources: resources
+  output: dist
+files:
+  - out/**
+  - package.json
+  - resources/icon.png
+asarUnpack:
+  - resources/**
+win:
+  target: nsis
+  icon: resources/icon.ico
+  executableName: pdf-studio
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  artifactName: ${name}-${version}-setup.${ext}
+  shortcutName: ${productName}
+  installerIcon: resources/icon.ico
+  uninstallerIcon: resources/icon.ico
+fileAssociations:
+  - ext: pdf
+    name: PDF Document
+    description: PDF document
+    role: Editor
+npmRebuild: false
